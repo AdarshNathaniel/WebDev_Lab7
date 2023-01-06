@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <style>
+          table td,th
+            {
+            text-align: center;
+            border-radius:5px;
+            background-color: orange;
+            font-size: 20px;
+            transition: 0.5ms;
+            }
+            table
+            {
+            text-align: center;
+            }
+            table td:hover
+            {
+                transform: scale(1.15);
+                background-color: darkorange;
+                cursor: pointer;
+            }
+    </style>
+    <!--<link rel="stylesheet" href="css/style.css">-->
+</head>
+ <body style=" background-color: black; margin:0;" class="backg">
+    <h1 style="color:White;">BLACKHAWK$</h1>
+    <h2 style="color:White;">Cricket Team</h2>
+    <hr><hr>
+    <div style="text-align: center;">
+        <a style="margin-left:1%;" href="file:///C:/MyLocal%20(E)/MCA/Sem%202/Web%20Stack%20Development/Labs/Lab%20Programs/Lab%201/P1_Ind.html">Home </a>
+        <a style="margin-left:5%;" href="file:///C:/MyLocal%20(E)/MCA/Sem%202/Web%20Stack%20Development/Labs/Lab%20Programs/Lab%201/P1_Players.html"> Your Hawks</a>
+        <a style="margin-left:5%;" href="file:///C:/MyLocal%20(E)/MCA/Sem%202/Web%20Stack%20Development/Labs/Lab%20Programs/Lab%202/P2_Team.html"> Your Team</a>
+        <a style="margin-left:5%;" href="file:///C:/MyLocal%20(E)/MCA/Sem%202/Web%20Stack%20Development/Labs/Lab%20Programs/Lab%201/P1_JoinUs.html"> Be a Hawker</a>
+    </div>
+    <hr><hr>
+    <div ng-app="myApp" ng-controller="myController" align="center">
+
+        <h1 style="color:White;"> Know the Heads </h1><br>
+        <!--THE SEARCH BOX-->
+        <font style="font-size: 17px; color:White;">Search: &emsp;</font>
+        <input type="Search" ng-model="search" placeholder="Enter text to search" /><br><br><br>
+
+        <table>
+            <tr>
+                <th style="color:whitesmoke;">Heads</th>
+                <th style="color:Whitesmoke;">Position</th>
+            </tr>
+
+            <!--TABLE ROWS WITH A FILTER-->
+            <tr ng-repeat="heads in Headstaff | filter : search">
+
+                <td>{{heads.StaffName}}</td>
+                <td>{{heads.Position}}</td>
+    
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    angular.module("myApp", [])
+        .controller('myController', ['$scope', function ($scope) {
+
+        // JSON ARRAY OBJECT.
+        $scope.Headstaff =
+        [
+            {
+            "StaffName":"Kalanithi Maran",
+            "Position": "Owner"
+            },
+            {
+            "StaffName":"K Shanmugham",
+            "Position": "CEO"
+            },
+            {
+            "StaffName":"Srinath Bhashyam",
+            "Position": "General Manager"
+            },
+            {
+            "StaffName":"Brian Lara",
+            "Position": "Head Coach"
+            },
+            {
+            "StaffName":"Simon Helmot",
+            "Position": "Assistant Coach"
+            },
+            {
+            "StaffName":"Muttiah Muralitharan",
+            "Position": "Strategic Coach"
+            },
+            {
+            "StaffName":"Dale Steyn",
+            "Position": "Bowling Coach"
+            },
+            {
+            "StaffName":"Hemang Badani",
+            "Position": "Fielding Coach"
+            },
+            {
+            "StaffName":"Theo Kapakoulakis",
+            "Position": "Physio"
+            },
+            {
+            "StaffName":"Mario Villavarayan",
+            "Position": "Physical Trainer"
+            }
+        ]
+
+        } ]);
+</script>
+<style>
+    a:link {
+    color: #1c93c9;
+    background-color: transparent;
+    text-decoration: none;
+    }
+    a:visited {
+    color: #1c93c9;
+    background-color: transparent;
+    text-decoration: none;
+    }
+
+    a:hover {
+    color: #ffd000;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+
+    a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+</style>
+</html>
